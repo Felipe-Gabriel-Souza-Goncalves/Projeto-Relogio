@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/timer.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="modos">
+            Relógio 
+        </a>
+        <a href="timer.html" class="modos">
+            Timer
+        </a>
+        <a href="cronometro.html" class="modos">
+            Cronômetro
+        </a>
+    </header>
+    <hr>
+    <main>
+        <div id="container">
+            <h1 id="timer">00:00:00</h1>
+            <div>
+                <button onclick="adicionarTempo(5)">+5seg</button>
+                <button onclick="adicionarTempo(30)">+30seg</button>
+                <button onclick="adicionarTempo(60)">+60seg</button>
+                <br>
+                <button onclick="comecarTimer()">▶</button>
+            </div>
+        </div>
+    </main>
+    <script src="js/timer.js"></script>
+</body>
+</html>

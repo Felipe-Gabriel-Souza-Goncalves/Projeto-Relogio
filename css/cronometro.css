@@ -1,0 +1,11 @@
+#container > div > button{
+    font-size: inherit;
+}
+
+#marcacoes{
+    font-size: 0.5em;
+    height: 255px;
+    border-bottom: 1px solid black;
+    overflow-y: auto;
+    text-align: center;
+}
