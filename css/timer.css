@@ -1,0 +1,8 @@
+button:not(#playButton){
+    padding: 5px;
+    font-weight: 600;
+}
+#playButton{
+    width: 100%;
+    font-size: 0.5em;
+}

@@ -1,10 +1,12 @@
 var segundos = 0
 var minutos = 0
 var horas = 0
+var ligado = false
 function comecarTimer(){
-
+    ligado = true
+    document.getElementById("playButton").disabled = true
     setTimeout(() =>{
-        alert("acabou")
+        ligado = false
     }, segundos*1000)
     mudarDisplay()
 
@@ -18,6 +20,9 @@ function comecarTimer(){
 }
 
 function adicionarTempo(tempo){
+    if(ligado != true){
+        document.getElementById("playButton").disabled = false
+    }
     segundos+=tempo
     mudarDisplay()
 }
