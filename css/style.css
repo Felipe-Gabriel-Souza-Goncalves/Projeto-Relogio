@@ -8,3 +8,9 @@ p{
 #container > div > button{
     font-size: inherit;
 }
+@media (max-width: 800px) {
+    main{
+        align-items: baseline;
+    }
+    
+}

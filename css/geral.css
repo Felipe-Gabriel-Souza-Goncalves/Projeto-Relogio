@@ -1,18 +1,36 @@
+:root{
+    --corLinks: rgb(240, 128, 128);
+    --corFundo: rgb(255,255,255);
+    --corLetra: rgb(0,0,0)
+    /* --corLinks: rgb(243, 254, 255); */
+}
+
 body{
+    color: var(--corLetra);
     font-family: Arial;
     font-weight: 100;
     font-size: 2em;
     padding: 0;
     margin: 0;
     height: 100vh;
-    
+    background-color: var(--corFundo);
 }
 header{
     display: flex;
     align-items: center;
     gap: 2em;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+header a{
     padding: 30px 50px;
-    height: 5%;
+    color: var(--corLinks);
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.paginaAtual{
+    border-bottom: 2px solid var(--corLinks);
 }
 hr{
     margin: 0;
@@ -22,10 +40,8 @@ main{
     justify-content: center;
     align-items: center;
     height: 85%;
-
 }
     #container{
-        background-color: rgba(255, 99, 71, 0.322);
         padding: 50px;
         width: 100%;
         display: flex;
@@ -33,3 +49,56 @@ main{
         align-items: center;
         font-size: 2em;
     }
+button{
+    color: var(--corLetra);
+    background-color: var(--corFundo);
+    border: 1px solid var(--corLetra);
+    border-radius: 15px;
+    padding: 5px;
+}
+#iconMode{
+    width: 40px;
+    margin-left: auto;
+    margin-right: 50px;
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+    #iconMode:hover{
+        border: 2px solid gray;
+    }
+.iconeEscuro{
+    filter: brightness(0) saturate(100%) invert(97%) sepia(88%) saturate(1616%) hue-rotate(180deg) brightness(112%) contrast(103%);
+}
+@media (max-width: 800px) {
+    h1{
+        margin: 0;
+        font-size: 1.5em;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    hr{
+        display: none;
+    }
+    header{
+        flex-wrap: wrap;
+    }
+    header a{
+        border-top: 1px solid lightgray;
+        text-align: center;
+        width: 100%;
+        padding: 10px 5px;
+    }
+
+    /*  */
+    div{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 500px) {
+    h1{
+        font-size: 0.8em;
+    }
+}

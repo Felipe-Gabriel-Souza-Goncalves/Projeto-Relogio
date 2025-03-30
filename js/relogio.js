@@ -1,3 +1,6 @@
+const linkSelecionado = document.getElementsByClassName("modos")[0]
+linkSelecionado.classList.add("paginaAtual")
+
 var formatoMilitar = true
 function pegarHorario(){
     const relogio = document.getElementById("relogio")

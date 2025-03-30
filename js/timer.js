@@ -1,3 +1,6 @@
+const linkSelecionado = document.getElementsByClassName("modos")[1]
+linkSelecionado.classList.add("paginaAtual")
+
 var segundos = 0
 var minutos = 0
 var horas = 0

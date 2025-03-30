@@ -1,3 +1,6 @@
+const linkSelecionado = document.getElementsByClassName("modos")[2]
+linkSelecionado.classList.add("paginaAtual")
+
 const marcar = document.getElementById("marcar")
 const pausar = document.getElementById("pausar")
 
