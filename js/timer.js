@@ -11,14 +11,17 @@ function comecarTimer(){
     setTimeout(() =>{
         ligado = false
     }, segundos*1000)
+
     mudarDisplay()
 
     var intervalo = setInterval(() =>{
         segundos-=1
-        mudarDisplay()
         if(segundos <= 0){
+            segundos = 0
             clearInterval(intervalo)
+            return
         }
+        mudarDisplay()
     }, 1000)
 }
 
@@ -26,9 +29,19 @@ function adicionarTempo(tempo){
     if(ligado != true){
         document.getElementById("playButton").disabled = false
     }
+    console.log(segundos)
     segundos+=tempo
+    console.log(segundos)
+
     mudarDisplay()
 }
+
+function finalizarTimer(){
+    ligado = false
+    segundos = 0
+    mudarDisplay()
+    document.getElementById("playButton").disabled = true
+} 
 
 function mudarDisplay(){
     minutos =  Math.floor(segundos / 60)

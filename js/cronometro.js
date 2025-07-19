@@ -44,9 +44,18 @@ function criarContador(){
         cronometro.innerHTML = `${horas.toString().padStart(2, 0)}:${minutos.toString().padStart(2, 0)}:${segundos.toString().padStart(2, 0)}:${milisegundos.toString().padStart(2, 0)}`
     }
 
+    let temposMarcados = []
     function marcarTempo(){
         const cronometro = document.getElementById("cronometro")
-        document.getElementById("marcacoes").innerHTML +=`<p>${marcacoes}- ${cronometro.innerHTML}</p>`
+        temposMarcados.push(cronometro.innerHTML)
+
+        
+        document.getElementById("marcacoes").innerHTML += `<tr>
+        <td>${marcacoes} - </td>
+        <td class="tempos">${cronometro.innerHTML}</td>
+        <td>${temposMarcados.length > 1 ? diferencaHorarios(temposMarcados[temposMarcados.length - 2], temposMarcados[temposMarcados.length - 1], true) : cronometro.innerHTML}</td>
+        </tr>`
+        
         marcacoes++
     }
 
@@ -85,10 +94,32 @@ function comecar(e){
     }
 }
 
-
 function pausarTempo(){
     clearInterval(intervalo)
     document.getElementById("pausar").setAttribute("onclick", "comecar('')")
-    document.getElementById("pausar").innerHTML = "Despausar"
+    document.getElementById("pausar").innerHTML = "Continuar"
 }
 
+
+// Feito com auxílio de IA
+function parseHorario(horario) {
+    console.log(horario)
+    
+    const [hh, mm, ss, ms] = horario.split(':').map(Number);
+    return (((hh * 60 + mm) * 60 + ss) * 1000 + ms);
+}
+
+function diferencaHorarios(h1, h2, formatado = false) {
+    const ms1 = parseHorario(h1);
+    const ms2 = parseHorario(h2);
+    const diff = Math.abs(ms1 - ms2);
+
+    if (!formatado) return diff;
+
+    const horas = Math.floor(diff / 3600000);
+    const minutos = Math.floor((diff % 3600000) / 60000);
+    const segundos = Math.floor((diff % 60000) / 1000);
+    const milissegundos = diff % 1000;
+
+    return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}:${String(milissegundos).padStart(3, '0')}`;
+}

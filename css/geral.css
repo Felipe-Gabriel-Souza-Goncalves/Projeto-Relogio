@@ -7,13 +7,18 @@
 
 body{
     color: var(--corLetra);
-    font-family: Arial;
+    font-family: monospace;
     font-weight: 100;
     font-size: 2em;
     padding: 0;
     margin: 0;
     height: 100vh;
     background-color: var(--corFundo);
+}
+button{
+    font-family: monospace;
+    margin: 5px;
+    font-size: 42px;
 }
 header{
     display: flex;
@@ -29,6 +34,22 @@ header a{
     box-sizing: border-box;
     text-decoration: none;
 }
+img[alt="menu"]{
+    display: none;
+    height: 50px;
+}
+#containerModos{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.modos{
+    transition: .3s;
+}
+.modos:hover{
+    backdrop-filter: brightness(0.95);
+}
+
 .paginaAtual{
     border-bottom: 2px solid var(--corLinks);
 }
@@ -54,7 +75,12 @@ button{
     background-color: var(--corFundo);
     border: 1px solid var(--corLetra);
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
+    transition: .1s;
+}
+button:hover{
+    background-color: var(--corLetra);
+    color: var(--corFundo);
 }
 #iconMode{
     width: 40px;
@@ -71,6 +97,31 @@ button{
     filter: brightness(0) saturate(100%) invert(97%) sepia(88%) saturate(1616%) hue-rotate(180deg) brightness(112%) contrast(103%);
 }
 @media (max-width: 800px) {
+    img[alt="menu"]{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 2;
+        display: block;
+    }
+    #iconMode{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 2;
+        margin: 0;
+    }
+    #containerModos{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        margin: 0 auto
+    }
+    .modos{
+        position: relative;
+        transform: translateY(-500px);
+        width: fit-content;
+    }
     h1{
         margin: 0;
         font-size: 1.5em;
@@ -82,9 +133,9 @@ button{
     }
     header{
         flex-wrap: wrap;
+        height: 100px;
     }
     header a{
-        border-top: 1px solid lightgray;
         text-align: center;
         width: 100%;
         padding: 10px 5px;

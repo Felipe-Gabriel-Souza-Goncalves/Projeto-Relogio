@@ -10,16 +10,19 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="modos">
-            Relógio 
-        </a>
-        <a href="timer.html" class="modos">
-            Timer
-        </a>
-        <a href="cronometro.html" class="modos">
-            Cronômetro
-        </a>
-        <img id="iconMode" onclick="toogleDarkMode()" src="img/light_mode_icon.png" alt="modo claro/escuro">
+        <img src="img/menu_burger.svg" alt="menu" id="menu" onclick="toggleMenu()">
+        <div id="containerModos">
+            <a href="index.html" class="modos">
+                Relógio 
+            </a>
+            <a href="timer.html" class="modos">
+                Timer
+            </a>
+            <a href="cronometro.html" class="modos">
+                Cronômetro
+            </a>
+            <img id="iconMode" onclick="toogleDarkMode()" src="img/light_mode_icon.png" alt="modo claro/escuro">
+        </div>
     </header>
     <hr>
     <main>

@@ -3,6 +3,15 @@ button:not(#playButton){
     font-weight: 600;
 }
 #playButton{
-    width: 100%;
+    width: 45%;
+    height: 60px;
     font-size: 0.5em;
+}
+#endButton{
+    width: 45%;
+    height: 60px;
+    font-size: 0.5em;
+}
+#playButton:hover:disabled{
+    filter: brightness(0.9);
 }

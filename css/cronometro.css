@@ -1,16 +1,38 @@
 #container > div > button{
-    font-size: inherit;
+    font-size: 42px;
 }
-
 #marcacoes{
     font-size: 0.5em;
-    height: 255px;
+    width: 100%;
+    height: 50px;
+    max-height: 300px;
     margin-top: 15px;
     border: 1px solid lightgray;
     overflow-y: auto;
+    table-layout: auto;
     text-align: center;
 }
+thead td:first-of-type,
+thead th{
+    width: 20%;
+    height: fit-content;
+}
+thead td:nth-of-type(2),
+thead th{
+    width: 45%;
+}
+thead td:last-of-type,
+thead th{
+    width: 35%;
+}
 @media (max-width: 500px) {
+    #container{
+        margin-top: 100px;
+        padding: 35px;
+    }
+    #container > div > button{
+        font-size: 36px;
+    }
     h1{
         font-size: 0.9em;
     }
