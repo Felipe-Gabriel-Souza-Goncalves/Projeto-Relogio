@@ -1,6 +1,11 @@
 #container > div > button{
     font-size: 42px;
 }
+button:disabled{
+    cursor: not-allowed;
+    filter: brightness(0.75);
+}
+
 #marcacoes{
     font-size: 0.5em;
     width: 100%;

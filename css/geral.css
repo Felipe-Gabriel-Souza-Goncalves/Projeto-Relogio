@@ -1,8 +1,17 @@
 :root{
+    --bgHover: rgb(255, 216, 216);
     --corLinks: rgb(240, 128, 128);
     --corFundo: rgb(255,255,255);
     --corLetra: rgb(0,0,0)
     /* --corLinks: rgb(243, 254, 255); */
+}
+
+::-webkit-scrollbar{
+    background-color: var(--corFundo);
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 12px;
+    background-color: var(--corLetra);
 }
 
 body{
@@ -16,6 +25,7 @@ body{
     background-color: var(--corFundo);
 }
 button{
+    cursor: pointer;
     font-family: monospace;
     margin: 5px;
     font-size: 42px;
@@ -44,9 +54,12 @@ img[alt="menu"]{
     width: 100%;
 }
 .modos{
+    outline: 0;
     transition: .3s;
 }
-.modos:hover{
+.modos:hover,
+.modos:focus{
+    background-color: var(--bgHover);
     backdrop-filter: brightness(0.95);
 }
 
@@ -60,7 +73,6 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85%;
 }
     #container{
         padding: 50px;
@@ -89,6 +101,7 @@ button:hover{
     padding: 5px;
     border: 2px solid transparent;
     border-radius: 10px;
+    cursor: pointer;
 }
     #iconMode:hover{
         border: 2px solid gray;

@@ -1,13 +1,29 @@
 const root = document.querySelector(":root")
-var modoEscuro = false;
+const prefereModoEscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+let modoEscuro = false;
+const localModoEscuro = sessionStorage.getItem("modoEscuro")
+if(localModoEscuro == null){
+    if(prefereModoEscuro){
+        document.getElementById("iconMode").classList.toggle("iconeEscuro")
+        modoEscuro = true;
+        sessionStorage.setItem("modoEscuro", 'true')
 
-if(sessionStorage.getItem("modoEscuro") == 'true' && sessionStorage.getItem("modoEscuro") != null){
-    modoEscuro = true
-} else if(sessionStorage.getItem("modoEscuro") == 'false' || sessionStorage.getItem("modoEscuro") == null){
-    document.getElementById("iconMode").classList.toggle("iconeEscuro")
-    sessionStorage.setItem("modoEscuro", 'false')
-    modoEscuro = false
+    } else{
+        modoEscuro = false;
+        sessionStorage.setItem("modoEscuro", 'false')
+
+    }
+} else{
+    if(sessionStorage.getItem("modoEscuro") == 'true' && sessionStorage.getItem("modoEscuro") != null){
+        modoEscuro = true
+    } else if(sessionStorage.getItem("modoEscuro") == 'false' || sessionStorage.getItem("modoEscuro") == null){
+        document.getElementById("iconMode").classList.toggle("iconeEscuro")
+        sessionStorage.setItem("modoEscuro", 'false')
+        // modoEscuro = false
+    }
 }
+
+
 
 changeVariables()
 
@@ -25,6 +41,7 @@ function toogleDarkMode(){
 function changeVariables(){
     if(modoEscuro){
         root.style.setProperty("--corLinks", "rgb(243, 254, 255)")
+        root.style.setProperty("--bgHover", "rgba(43, 47, 60, 1)")
         root.style.setProperty("--corFundo", "rgb(25, 28, 37)")
         root.style.setProperty("--corLetra", "rgb(255, 255, 255)")
         document.getElementById("menu").classList.toggle("iconeEscuro")
@@ -32,6 +49,7 @@ function changeVariables(){
         document.getElementById("iconMode").src = "img/dark_mode_icon.png"
     } else{
         root.style.setProperty("--corLinks", "rgb(240, 128, 128)")
+        root.style.setProperty("--bgHover", "rgb(255, 216, 216)")
         root.style.setProperty("--corFundo", "rgb(255,255, 255)")
         root.style.setProperty("--corLetra", "rgb(0, 0, 0)")
         document.getElementById("iconMode").src = "img/light_mode_icon.png"
@@ -57,3 +75,4 @@ function toggleMenu(){
 
     }
 }
+

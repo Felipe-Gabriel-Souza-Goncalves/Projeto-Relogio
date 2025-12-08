@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relógio</title>
 
-    <link rel="stylesheet" href="css/geral.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/geral.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <header>
-        <img src="img/menu_burger.svg" alt="menu" id="menu" onclick="toggleMenu()">
-        <div id="containerModos">
-            <a href="index.html" class="modos">
-                Relógio 
-            </a>
-            <a href="timer.html" class="modos">
-                Timer
-            </a>
-            <a href="cronometro.html" class="modos">
-                Cronômetro
-            </a>
-            <img id="iconMode" onclick="toogleDarkMode()" src="img/light_mode_icon.png" alt="modo claro/escuro">
-        </div>
+      <img src="img/menu_burger.svg" alt="menu" id="menu" onclick="toggleMenu()" />
+      <div id="containerModos">
+        <a href="index.html" class="modos"> Relógio </a>
+        <a href="timer.html" class="modos"> Timer </a>
+        <a href="cronometro.html" class="modos"> Cronômetro </a>
+        <img id="iconMode" onclick="toogleDarkMode()" src="img/light_mode_icon.png" alt="modo claro/escuro" />
+      </div>
     </header>
-    <hr>
+    <hr />
     <main>
-        <div id="container">
-            <h1 id="relogio">00:00:00</h1>
-            <p>Horário de Brasília, GMT -3</p>
-            <div>
-                <button onclick="formatoMilitar = true; pegarHorario()">24 horas</button>
-                <button onclick="formatoMilitar = false; pegarHorario()">12 horas</button>
-            </div>
+      <div id="container">
+        <h1 id="relogio">00:00:00</h1>
+        <p>Horário de Brasília, GMT -3</p>
+        <div>
+          <button onclick="formatoMilitar = true; pegarHorario()">24 horas</button>
+          <button onclick="formatoMilitar = false; pegarHorario()">12 horas</button>
         </div>
-
+      </div>
     </main>
     <script src="js/relogio.js"></script>
     <script src="js/geral.js"></script>
-</body>
+  </body>
 </html>

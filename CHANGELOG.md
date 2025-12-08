@@ -11,3 +11,8 @@
 - Função de finalizar timer
 - Tabela de para marcações no cronômetro
   - Auxilio de IA para formatação de string hh:mm:ss:ms
+
+## [1.3] - Atualização 07/12/2025:
+- Melhorias de design e UX
+- Correção de não conseguir navegar entre pelas no cronometro.html
+- Modo claro/escuro baseado no padrão do dispositivo

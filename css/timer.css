@@ -13,5 +13,6 @@ button:not(#playButton){
     font-size: 0.5em;
 }
 #playButton:hover:disabled{
-    filter: brightness(0.9);
+    cursor: not-allowed;
+    filter: brightness(0.75);
 }
