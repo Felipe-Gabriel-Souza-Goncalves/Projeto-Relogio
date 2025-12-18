@@ -1,11 +1,9 @@
-const linkSelecionado = document.getElementsByClassName("modos")[2]
-linkSelecionado.classList.add("paginaAtual")
-
 const marcar = document.getElementById("marcar")
 const pausar = document.getElementById("pausar")
 
 var intervalo;
 var rodando = false
+
 function criarContador(){
     var marcacoes = 1 
 
@@ -46,14 +44,19 @@ function criarContador(){
 
     let temposMarcados = []
     function marcarTempo(){
+
         const cronometro = document.getElementById("cronometro")
         temposMarcados.push(cronometro.innerHTML)
-
         
-        document.getElementById("marcacoes").innerHTML += `<tr>
-        <td>${marcacoes} - </td>
-        <td class="tempos">${cronometro.innerHTML}</td>
-        <td>${temposMarcados.length > 1 ? diferencaHorarios(temposMarcados[temposMarcados.length - 2], temposMarcados[temposMarcados.length - 1], true) : cronometro.innerHTML}</td>
+
+        document.getElementById("marcacoes").innerHTML += `
+        <tr>
+            <td>${marcacoes} - </td>
+            <td class="tempos">${cronometro.innerHTML}</td>
+            <td>${temposMarcados.length > 1 ? 
+                diferencaHorarios(temposMarcados[temposMarcados.length - 2], temposMarcados[temposMarcados.length - 1], true) :
+                cronometro.innerHTML+"0"}
+            </td>
         </tr>`
         
         marcacoes++
@@ -80,12 +83,12 @@ function criarContador(){
 
 const contador = criarContador()
 
-function comecar(e){
+function comecar(comando){
     marcar.disabled = false
     pausar.disabled = false
     clearInterval(intervalo)
     intervalo = setInterval(() => {contador.incrementarMili()}, 10)
-    if(e != "comecar"){
+    if(comando != "comecar"){ 
         document.getElementById("pausar").innerHTML = "Pausar"
         document.getElementById("pausar").setAttribute("onclick", "pausarTempo()")
     } else{
@@ -94,7 +97,7 @@ function comecar(e){
     }
 }
 
-function pausarTempo(){
+function pausarTempo(){ // Pausa e altera elementos
     clearInterval(intervalo)
     document.getElementById("pausar").setAttribute("onclick", "comecar('')")
     document.getElementById("pausar").innerHTML = "Continuar"
@@ -102,18 +105,19 @@ function pausarTempo(){
 
 
 // Feito com auxílio de IA
-function parseHorario(horario) {
-    console.log(horario)
-    
+function parseHorario(horario) { 
+    // Transforma a string hh:mm:ss:ms em milisegundos e retorna
     const [hh, mm, ss, ms] = horario.split(':').map(Number);
     return (((hh * 60 + mm) * 60 + ss) * 1000 + ms);
 }
 
 function diferencaHorarios(h1, h2, formatado = false) {
+    // Calcula a diferença entre horários marcados por milisegundos
     const ms1 = parseHorario(h1);
     const ms2 = parseHorario(h2);
     const diff = Math.abs(ms1 - ms2);
 
+    // Se não quiser a string, retorna a diferença em milisegundos
     if (!formatado) return diff;
 
     const horas = Math.floor(diff / 3600000);
@@ -121,5 +125,6 @@ function diferencaHorarios(h1, h2, formatado = false) {
     const segundos = Math.floor((diff % 60000) / 1000);
     const milissegundos = diff % 1000;
 
-    return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}:${String(milissegundos).padStart(3, '0')}`;
+    // Retorna a string em hh:mm:ss:mss
+    return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}:${String(milissegundos).padEnd(3, '0')}`;
 }

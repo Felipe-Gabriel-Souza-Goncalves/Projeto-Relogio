@@ -1,31 +1,36 @@
 const root = document.querySelector(":root")
 const prefereModoEscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
 let modoEscuro = false;
+
+
 const localModoEscuro = sessionStorage.getItem("modoEscuro")
-if(localModoEscuro == null){
-    if(prefereModoEscuro){
+if(localModoEscuro == null){ // Se não houver algo salvo em localStorage
+
+    if(prefereModoEscuro){ // Se o dispositivo estiver com modo escuro padrão
+        document.getElementById("menu").classList.toggle("iconeEscuro")
         document.getElementById("iconMode").classList.toggle("iconeEscuro")
         modoEscuro = true;
         sessionStorage.setItem("modoEscuro", 'true')
-
-    } else{
+    } else{  // Se o dispositivo estiver com modo claro padrão
         modoEscuro = false;
         sessionStorage.setItem("modoEscuro", 'false')
-
     }
-} else{
-    if(sessionStorage.getItem("modoEscuro") == 'true' && sessionStorage.getItem("modoEscuro") != null){
+
+} else{ // Se houver algo salvo
+    if(sessionStorage.getItem("modoEscuro") == 'true' &&
+       sessionStorage.getItem("modoEscuro") != null)
+    { // Se for escuro
         modoEscuro = true
-    } else if(sessionStorage.getItem("modoEscuro") == 'false' || sessionStorage.getItem("modoEscuro") == null){
+    } else if(sessionStorage.getItem("modoEscuro") == 'false' ||
+              sessionStorage.getItem("modoEscuro") == null)
+    { // Se for claro
+        document.getElementById("menu").classList.toggle("iconeEscuro")
         document.getElementById("iconMode").classList.toggle("iconeEscuro")
         sessionStorage.setItem("modoEscuro", 'false')
-        // modoEscuro = false
     }
 }
 
-
-
-changeVariables()
+changeVariables() // Instancia para 
 
 function toogleDarkMode(){
     modoEscuro = !modoEscuro
@@ -38,6 +43,7 @@ function toogleDarkMode(){
     }
 }
 
+// Altera as variáveis de cores e imagens css 
 function changeVariables(){
     if(modoEscuro){
         root.style.setProperty("--corLinks", "rgb(243, 254, 255)")
@@ -59,16 +65,16 @@ function changeVariables(){
 }
 
 let menuAberto = false
-function toggleMenu(){
+function toggleMenu(){ 
+
     menuAberto = !menuAberto
-
-
     const modos = document.getElementsByClassName("modos")
+
     for(let i = 0; i < modos.length; i++){
-        if(menuAberto){
+        if(menuAberto){ // Mostra os itens de navegação
             modos[i].style.transform = "translateY(0)"
             new Promise((resolve, reject) => {setTimeout(() => resolve, 300)})
-        } else{
+        } else{ // Oculta os itens de navegação
             modos[i].style.transform = "translateY(-500px)"
             new Promise((resolve, reject) => {setTimeout(() => resolve, 300)})
         }

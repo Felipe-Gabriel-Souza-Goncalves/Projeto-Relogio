@@ -82,6 +82,13 @@ main{
         align-items: center;
         font-size: 2em;
     }
+footer {
+    border-top: 1px solid var(--corLetra);
+    padding: 12px 0px;
+    text-align: center;
+    font-size: 0.65em;
+}
+footer a{color: var(--corLetra); filter: brightness(0.8);}
 button{
     color: var(--corLetra);
     background-color: var(--corFundo);

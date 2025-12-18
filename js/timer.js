@@ -1,6 +1,3 @@
-const linkSelecionado = document.getElementsByClassName("modos")[1]
-linkSelecionado.classList.add("paginaAtual")
-
 var segundos = 0
 var minutos = 0
 var horas = 0
@@ -29,9 +26,7 @@ function adicionarTempo(tempo){
     if(ligado != true){
         document.getElementById("playButton").disabled = false
     }
-    console.log(segundos)
     segundos+=tempo
-    console.log(segundos)
 
     mudarDisplay()
 }

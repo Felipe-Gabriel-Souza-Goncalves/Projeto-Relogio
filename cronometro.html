@@ -14,7 +14,7 @@
       <div id="containerModos">
         <a href="index.html" class="modos"> Relógio </a>
         <a href="timer.html" class="modos"> Timer </a>
-        <a href="cronometro.html" class="modos"> Cronômetro </a>
+        <a href="cronometro.html" class="modos paginaAtual"> Cronômetro </a>
         <img id="iconMode" onclick="toogleDarkMode()" src="img/light_mode_icon.png" alt="modo claro/escuro" />
       </div>
     </header>
@@ -27,17 +27,27 @@
           <button onclick="contador.marcarTempo()" id="marcar" disabled>Marcar</button>
           <button onclick="pausarTempo()" id="pausar" disabled>Pausar</button>
           <div style="height: 255px; overflow-y: auto">
-            <table id="marcacoes">
+            <table>
               <thead>
-                <th>nº</th>
+                <th>Nº</th>
                 <th>Tempo</th>
                 <th>Diferença</th>
               </thead>
+              <tbody id="marcacoes"></tbody>
             </table>
           </div>
         </div>
       </div>
     </main>
+
+    <footer>
+      Repositório do projeto:
+      <a target="_blank" href="https://github.com/Felipe-Gabriel-Souza-Goncalves/Projeto-Relogio"
+        ><br />
+        https://github.com/Felipe-Gabriel-Souza-Goncalves/Projeto-Relogio</a
+      >
+    </footer>
+
     <script src="js/cronometro.js"></script>
     <script src="js/geral.js"></script>
   </body>
